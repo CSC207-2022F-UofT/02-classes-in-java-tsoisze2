@@ -78,9 +78,16 @@ public class Silly implements Comparable<Silly>{
      *       Afterwards, set this.name to the concatenation of both
      *       strings (e.g. this.name = [first string] + [second string]).
      *       Make sure you document this method!
+     *
+     * Creates a new Silly object.
+     * This constructor takes in two String objects as arguments.
+     *
+     * @param first the first part of this Silly instance's name.
+     * @param second the second part of this Silly instance's name.
      */
-
-
+    public Silly(String first, String second) {
+        this.name = first + second;
+    }
 
 
 
@@ -116,10 +123,11 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {0, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
+
 
     /**
      * 3. Whenever we try to build a string with an Object, the toString()
@@ -134,6 +142,7 @@ public class Silly implements Comparable<Silly>{
     @Override
     public String toString(){
         // TODO (Task 3): Implement the body of this method!
+        return this.name;
     }
 
     /**
@@ -161,6 +170,10 @@ public class Silly implements Comparable<Silly>{
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
+        String this_name = this.name;
+        String that_name = other.name;
+
+        return this_name.equals(that_name);
     }
 
     /**
@@ -194,6 +207,14 @@ public class Silly implements Comparable<Silly>{
          *                You can get the length of a string by using the
          *                .length() method.
          */
+
+        String this_name = this.name;
+        String that_name = other.name;
+
+        int this_name_len = this_name.length();
+        int that_name_len = that_name.length();
+
+        return this_name_len - that_name_len;
     }
 
     /*
